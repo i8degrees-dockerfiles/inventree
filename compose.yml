@@ -63,13 +63,6 @@ services:
       # Data volume must map to /home/inventree/data
       - ${INVENTREE_EXT_VOLUME}:/home/inventree/data:z
     restart: unless-stopped
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.inventree.rule=Host(`inventory.fs1.home`) && PathPrefix(`/`)"
-      - "traefik.http.routers.inventree.entrypoints=websecure"
-      - "traefik.http.services.inventree.loadbalancer.server.port=8000"
-      - "traefik.http.routers.inventree.service=inventree"
-      - "traefik.http.routers.inventree.tls.certresolver=staging-web-acme"
     networks:
       - traefik-proxy
 
@@ -107,3 +100,10 @@ services:
       - ${INVENTREE_EXT_VOLUME}:/var/www:z
     networks:
       - traefik-proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.inventree.rule=Host(`inventory.fs1.home`) && PathPrefix(`/`)"
+      - "traefik.http.routers.inventree.entrypoints=websecure"
+      - "traefik.http.services.inventree.loadbalancer.server.port=80"
+      - "traefik.http.routers.inventree.service=inventree"
+      - "traefik.http.routers.inventree.tls.certresolver=staging-web-acme"
