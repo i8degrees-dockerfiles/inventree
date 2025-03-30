@@ -49,8 +49,10 @@ Finally, we can bootstrap the project! Cross your fingers, say
 your prayers or however your typical ritual for this goes:
 
 ```sh
+docker compose run --rm inventree-server invoke update
 docker compose up -d
 docker compose down
+docker compose up -d --force-recreate
 ```
 
 ```sh
