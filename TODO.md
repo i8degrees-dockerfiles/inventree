@@ -22,3 +22,5 @@ that explicitly require it
 
 - [ ] fix `contrib/nginx` files; we did not fetch the correct URLs
 
+- [ ] add LICENSE info regarding contrib files and such
+
