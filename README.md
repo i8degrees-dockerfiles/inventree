@@ -1,5 +1,5 @@
 
-# inventree
+# InvenTree
 
 Inventory management system
 
@@ -49,6 +49,8 @@ your prayers or however your typical ritual for this goes:
 ```sh
 compose up -d
 # docker compose up -d
+# docker compose --env-file .env.secrets --env-file .env \
+    # up -d
 ```
 
 ```sh
