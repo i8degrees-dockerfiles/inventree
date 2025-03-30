@@ -8,22 +8,24 @@ Inventory management system
 
 ## usage
 
-First, we must prepare our local environment to suit this 
-project by maintaining two files that should never be checked into
-revision control -- `.env` and *especially* `.env.secrets`.
+First, we must prepare our local environment to suit this
+project by maintaining a local environment file called `.env`. This file must
+never be checked into revision control! If you accidently push the file onto
+a public medium, **all bits** considered sensitive must be discarded in full
+and regenerated from scratch (by following this guide again).
 
-So, by using `.env.dist` and `.env.secrets.dist` as our two starting 
-points:
+So, without further ado, let us begin by creating our environment file by
+using the existing template provided by us by [Inventree documentation][1].
 
 ```sh
 cp -av .env.dist .env
-cp -av .env.secrets.dist .env.secrets
 ```
 
 Next, use your favorite text editor and begin filling in the
 variables inside of each file to your liking. However you choose
-to manage your credentials for this, be sure that the passwords
-are kept somewhere safe!
+to manage your credentials for this sort of thing, be sure that the
+passwords are kept somewhere safe and accessible in the case that they may
+need to be revoked at some point in the future.
 
 ```sh
 INVENTREE_SITE_URL="http://inventory.fs1.home"
@@ -40,26 +42,29 @@ file at `/etc/hosts`.
 # Note that if you are using a reverse proxy that is hosted
 # elsewhere, you may want to update the IP to reflect the
 # address of the proxy host.
-<hostIP> inventory.localhost
+<hostIP> inventree.localhost
 ```
 
 Finally, we can bootstrap the project! Cross your fingers, say
 your prayers or however your typical ritual for this goes:
 
 ```sh
-compose up -d
-# docker compose up -d
-# docker compose --env-file .env.secrets --env-file .env \
-    # up -d
+docker compose up -d
+docker compose down
 ```
 
 ```sh
 # Check status of each service
-compose logs #--since=5m
+docker compose logs #--since=5m
+
+```sh
+# Start and stop an individual service
+docker start inventree-db # service name
+docker stop inventree-proxy # service name
 ```
 
 - [IvenTree local instance](http://inventree.localhost)
-- [IvenTree portal](https://inventree.fs1.home)
+- [IvenTree portal](https://inventory.fs1.home)
 
 ### apps
 

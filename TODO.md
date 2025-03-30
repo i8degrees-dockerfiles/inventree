@@ -17,7 +17,7 @@ that explicitly require it
   * `./mounts/pgdb`
   * `./mounts/logs`
 
-- [ ] fix `env_file` not loading both environment files
+- [x] fix `env_file` not loading both environment files
   * docker compose --env-file .env.secrets --env-file .env up -d`
 
 - [ ] fix `contrib/nginx` files; we did not fetch the correct URLs

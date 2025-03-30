@@ -3,8 +3,6 @@ dist/**
 
 .env
 !.env.dist
-.env.secrets
-!.env.secrets.dist
 
 inventree-data/**
 mounts/**
