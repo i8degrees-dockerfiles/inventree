@@ -53,7 +53,3 @@ compose up -d
 
 1. [third party setup](https://github.com/Zeigren/inventree-docker)
 
-## TODO
-
-- [ ] *...*
-
