@@ -3,7 +3,7 @@
 
 Inventory management system
 
-`inventree/inventree:0.17.9`
+[inventree/inventree:0.17.9][0]
 
 ## usage
 
@@ -14,7 +14,8 @@ Inventory management system
 - `compose.yml`
   - `.env`
     * `.env.dist`
-  - *...*
+  - `.env.secrets`
+    * `.env.secrets.dist`
 
 ## reference documents
 
