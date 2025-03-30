@@ -20,14 +20,45 @@ cp -av .env.dist .env
 cp -av .env.secrets.dist .env.secrets
 ```
 
-Finally, use your favorite text editor and begin filling in the
-variables inside of each file to your liking. Once you are finished,
-you may attempt to bootstrap the project!
+Next, use your favorite text editor and begin filling in the
+variables inside of each file to your liking. However you choose
+to manage your credentials for this, be sure that the passwords
+are kept somewhere safe!
+
+```sh
+INVENTREE_SITE_URL="http://inventory.fs1.home"
+```
+
+As I already have a private DNS setup on my LAN, I simply
+visit my authoritative DNS panel and add an entry to the
+**fs1.home** zone. Feel free to start off by using
+**localhost** for this, orby adding an entry to your hosts
+file at `/etc/hosts`.
+
+```sh
+# /etc/hosts
+# Note that if you are using a reverse proxy that is hosted
+# elsewhere, you may want to update the IP to reflect the
+# address of the proxy host.
+<hostIP> inventory.localhost
+```
+
+Finally, we can bootstrap the project! Cross your fingers, say
+your prayers or however your typical ritual for this goes:
 
 ```sh
 compose up -d
 # docker compose up -d
 ```
+
+```sh
+# Check status of each service
+compose logs #--since=5m
+```
+
+- [IvenTree local instance](http://inventree.localhost)
+- [IvenTree portal](https://inventree.fs1.home)
+
 ### apps
 
 - [Git repo](https://github.com/inventree/inventree-app)
