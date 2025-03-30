@@ -6,6 +6,10 @@ Inventory management system
 - [inventree/inventree:0.17.9][0]
 - [Github: inventree repos](https://github.com/orgs/inventree/repositories?type=all)
 
+- contrib
+  1. [inventree][0]
+  2. [third party conf][6]
+
 ## usage
 
 First, we must prepare our local environment to suit this
@@ -93,10 +97,5 @@ docker stop inventree-proxy # service name
 [3]: https://raw.githubusercontent.com/inventree/inventree/0491b10438531221ccbcb08d271c5ba8e7c24d91/contrib/container/Caddyfile
 [4]: https://raw.githubusercontent.com/inventree/inventree/0491b10438531221ccbcb08d271c5ba8e7c24d91/contrib/container/docker-compose.yml
 [5]: https://docs.inventree.org/en/stable/app/app/#
-
-1. [third party setup](https://github.com/Zeigren/inventree-docker)
-1. [compose.yml: third-party setup](https://github.com/Zeigren/inventree-docker/blob/master/docker-compose.yml)
-2. [inventree_nginx.conf: nginx conf](https://github.com/Zeigren/inventree-docker/blob/master/inventree_nginx.conf)
-3. [traefik.yml: using traefik instead of Caddy](https://github.com/Zeigren/inventree-docker/blob/master/traefik.yml)
-4. [production.yml: nginx with ssl](https://github.com/Zeigren/inventree-docker/blob/master/production.yml)
+[6]: https://github.com/Zeigren/inventree-docker
 

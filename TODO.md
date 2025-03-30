@@ -20,7 +20,7 @@ that explicitly require it
 - [x] fix `env_file` not loading both environment files
   * docker compose --env-file .env.secrets --env-file .env up -d`
 
-- [ ] fix `contrib/nginx` files; we did not fetch the correct URLs
+- [x] fix `contrib/nginx` files; we did not fetch the correct URLs
 
-- [ ] add LICENSE info regarding contrib files and such
+- [x] add LICENSE info regarding contrib files and such
 
