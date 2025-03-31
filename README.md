@@ -49,14 +49,19 @@ file at `/etc/hosts`.
 <hostIP> inventree.localhost
 ```
 
+**WARNING:** If you receive an error regarding SSL handshake
+and are using a self-signed certificate for the installation,
+please try disabling SSL verification from within the app.
+
 Finally, we can bootstrap the project! Cross your fingers, say
 your prayers or however your typical ritual for this goes:
 
 ```sh
 docker compose run --rm inventree-server invoke update
 docker compose up -d
-docker compose down
-docker compose up -d --force-recreate
+#docker compose down
+#docker compose up -d --force-recreate
+#docker compose up -d inventory-server --force-recreate
 ```
 
 ```sh
