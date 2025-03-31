@@ -11,9 +11,9 @@ networks:
     driver: overlay
   inventree-db:
   inventree-server:
-volumes:
-  media:
-  static:
+#volumes:
+#media:
+#static:
 
 services:
   # redis acts as database cache manager
@@ -104,8 +104,8 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro,z
       - ${INVENTREE_EXT_VOLUME}:/var/www:z
-      - static:/var/www/inventree/static
-      - media:/var/www/inventree/media
+      #- static:/var/www/inventree/static
+      #- media:/var/www/inventree/media
     networks:
       #- inventree-server
       - traefik-proxy
@@ -116,9 +116,3 @@ services:
       - "traefik.http.services.inventree-fs1.loadbalancer.server.port=80"
       - "traefik.http.routers.inventree-fs1.service=inventree-fs1"
       - "traefik.http.routers.inventree-fs1.tls.certresolver=staging-web-acme"
-      # home
-      - "traefik.http.routers.inventree-home.rule=Host(`inventory.home`) && PathPrefix(`/`)"
-      - "traefik.http.routers.inventree-home.entrypoints=websecure"
-      - "traefik.http.services.inventree-home.loadbalancer.server.port=80"
-      - "traefik.http.routers.inventree-home.service=inventree"
-      - "traefik.http.routers.inventree-home.tls.certresolver=staging-web-acme"
