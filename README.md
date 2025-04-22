@@ -3,7 +3,7 @@
 
 Inventory management system
 
-- [inventree/inventree:0.17.9][0]
+- [inventree/inventree:0.17.10][0]
 - [Github: inventree repos](https://github.com/orgs/inventree/repositories?type=all)
 
 - contrib

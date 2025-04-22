@@ -116,3 +116,4 @@ services:
       - "traefik.http.services.inventree-fs1.loadbalancer.server.port=80"
       - "traefik.http.routers.inventree-fs1.service=inventree-fs1"
       - "traefik.http.routers.inventree-fs1.tls.certresolver=staging-web-acme"
+        #- "traefik.http.routers.inventree-fs1.middleware.
