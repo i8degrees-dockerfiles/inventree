@@ -2,3 +2,7 @@
 	path = src/inventree-app.git
 	url = https://github.com/inventree/inventree-app
 	branch = master
+[submodule "inventree-mobile-app-apk-builder"]
+	path = src/inventree-mobile-app-apk-builder.git
+	url = https://github.com/laurensramandt/inventree-mobile-app-apk-builder
+	branch = main
