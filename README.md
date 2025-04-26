@@ -12,6 +12,13 @@ Inventory management system
 
 ## usage
 
+```sh
+# cd ~/Projects
+git clone \
+    git@github.com:i8degrees-dockerfiles/inventree.git \
+inventree.git
+```
+
 First, we must prepare our local environment to suit this
 project by maintaining a local environment file called `.env`. This file must
 never be checked into revision control! If you accidently push the file onto
@@ -79,9 +86,23 @@ docker stop inventree-proxy # service name
 
 ### apps
 
-- [Git repo](https://github.com/inventree/inventree-app)
-- [Build instructions](https://github.com/inventree/inventree-app/blob/master/BUILDING.md)
+- Android & iOS
+    - [GitHub: iventree-app](https://github.com/inventree/inventree-app)
+    - [Build instructions](https://github.com/inventree/inventree-app/blob/master/BUILDING.md)
 
+#### inventree-app
+
+##### source tree
+
+```sh
+# ...From within your project root for my inventree 
+# git repo (see usage above)
+git submodule update --init --recursive
+git submodule sync
+cd "src/inventree-app.git"
+```
+
+*...*
 #### web
 
 *...*
