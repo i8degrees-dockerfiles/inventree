@@ -1,0 +1,4 @@
+[submodule "inventree-app"]
+	path = src/inventree-app.git
+	url = https://github.com/inventree/inventree-app
+	branch = master
