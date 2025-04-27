@@ -1,8 +1,8 @@
 [submodule "inventree-app"]
 	path = src/inventree-app.git
-	url = https://github.com/inventree/inventree-app
-	branch = master
+  url = git@github.com:i8degrees-dockerfiles/inventree-app.git
+	branch = dev
 [submodule "inventree-mobile-app-apk-builder"]
 	path = src/inventree-mobile-app-apk-builder.git
-	url = https://github.com/laurensramandt/inventree-mobile-app-apk-builder
-	branch = main
+  url = git@github.com:i8degrees-dockerfiles/inventree-mobile-app-apk-builder.git
+	branch = dev
