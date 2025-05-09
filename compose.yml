@@ -116,12 +116,6 @@ services:
       # in the mean time for connecting to the Android app.
       #
       # See ...
-      #- "traefik.http.routers.inventree-fs1.rule=Host(`inventree.fs1.home`) && PathPrefix(`/`)"
-      #- "traefik.http.routers.inventree-fs1.entrypoints=websecure"
-      #- "traefik.http.services.inventree-fs1.loadbalancer.server.port=80"
-      #- "traefik.http.routers.inventree-fs1.service=inventree-fs1"
-      #- "traefik.http.routers.inventree-fs1.tls.certresolver=staging-web-acme"
-        #- "traefik.http.routers.inventree-fs1.middleware.
       # NOTE(JEFF): Non-TLS terminated variant
       - "traefik.http.routers.inventree-fs1.rule=Host(`inventree.fs1.home`) && PathPrefix(`/`)"
       - "traefik.http.routers.inventree-fs1.entrypoints=web"
