@@ -7,5 +7,8 @@ dist/**
 inventree-data/**
 mounts/**
 
+# symbolic links
+media
+
 tmp/**
 
