@@ -117,10 +117,15 @@ services:
       #
       # See ...
       # NOTE(JEFF): Non-TLS terminated variant
-      - "traefik.http.routers.inventree-fs1.rule=Host(`inventree.fs1.home`) && PathPrefix(`/`)"
+      - "traefik.http.routers.inventree-fs1.rule=Host(`inventory.home`) && PathPrefix(`/`)"
       - "traefik.http.routers.inventree-fs1.entrypoints=web"
       - "traefik.http.services.inventree-fs1.loadbalancer.server.port=80"
       - "traefik.http.routers.inventree-fs1.service=inventree-fs1"
+      - "traefik.http.routers.inventory-fs1.rule=Host(`inventory.fs1.home`) && PathPrefix(`/`)"
+      - "traefik.http.routers.inventory-fs1.entrypoints=web"
+      - "traefik.http.services.inventory-fs1.loadbalancer.server.port=80"
+      - "traefik.http.routers.inventory-fs1.service=inventory-fs1"
+      - "traefik.http.routers.inventory-fs1.service=inventory-fs1"
   # https://hub.docker.com/r/tailscale/tailscale
   # https://login.tailscale.com/admin/machines
   inventree-tailscale:
@@ -128,26 +133,33 @@ services:
       #image: tailscale/tailscale:1.82.5
     image: tailscale/tailscale:stable
     container_name: inventree-tailscale-1
-    network_mode: host
-    privileged: true
-      #- NET_ADMIN
-      #- NET_RAW
-      #ports:
+    networks:
+      - traefik-proxy
+    #network_mode: host
+    #privileged: true
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    ports:
+      - "1080:80/tcp"
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/ssl/certs:/etc/ssl/certs:ro
-      - /var/lib/tailscale:/var/lib/tailscale:rw
-      - /dev/net/tun:/dev/net/tun:ro
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/ssl/certs:/etc/ssl/certs:ro"
+        # FIXME(JEFF): Relocate our bind mount to
+        # mounts/tailscale or so on this host!
+      #- "./mounts/tailscale:/var/lib/tailscale:rw"
+      - "/var/lib/tailscale:/var/lib/tailscale:rw"
+      - "/dev/net/tun:/dev/net/tun:ro"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.inventree-tailscale-fs1.rule=Host(`inventree-tailscale.fs1.home`) && PathPrefix(`/`)"
       - "traefik.http.routers.inventree-tailscale-fs1.entrypoints=websecure"
-      - "traefik.http.services.inventree-tailscale-fs1.loadbalancer.server.port=443"
+      - "traefik.http.services.inventree-tailscale-fs1.loadbalancer.server.port=80"
       - "traefik.http.routers.inventree-tailscale-fs1.service=inventree-tailscale-fs1"
     environment:
-      - "TS_AUTHKEY=tskey-auth-kVF4hZEtBB21CNTRL-ueBTMSQDom6baBobtDN3n6cQZZN8E6sM2"
+      #- "TS_AUTHKEY=tskey-auth-kVF4hZEtBB21CNTRL-ueBTMSQDom6baBobtDN3n6cQZZN8E6sM2"
       - "TS_AUTH_ONCE=true"
-      - "TS_DEST_IP=inventree-server"
+      #- "TS_DEST_IP=inventree-server"
       - "TS_HOSTNAME=inventree-tailscale-1"
       #- TS_ROUTES=
       - "TS_EXTRA_ARGS=--accept-routes"
