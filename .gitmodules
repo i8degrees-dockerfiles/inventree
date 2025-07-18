@@ -2,11 +2,14 @@
 	path = src/inventree-app.git
   url = git@github.com:i8degrees-dockerfiles/inventree-app.git
 	branch = dev
+  ignore = dirty
 [submodule "inventree-mobile-app-apk-builder"]
 	path = src/inventree-mobile-app-apk-builder.git
   url = git@github.com:i8degrees-dockerfiles/inventree-mobile-app-apk-builder.git
 	branch = dev
+  ignore = dirty
 [submodule "src/inventree.git"]
 	path = src/inventree.git
 	url = git@github.com:inventree/InvenTree.git
-	branch = master
+  branch = master
+  ignore = dirty
